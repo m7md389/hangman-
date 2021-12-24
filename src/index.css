@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.score{
+  margin-top: 3rem;
+}
+
+.solution{
+  margin-top: 3rem;
+}
+
+.letters{
+  margin-top: 3rem;
+}
+
+.end-game{
+  margin-top: 3rem;
+}
+
+.won{
+  color:green
+}
+
+.lost{
+  color: red;  
+}
+
+.letter{
+  font-size: larger;
+  margin-right: 10px;
+}
+
+.selected{
+  color: red;
+}
+
+.non-selected{
+  color: #000;
+}
+
+.non-selected:hover{
+  cursor: pointer;
+}
+
+.score{
+  font-size: 3rem;
+}
+
+.high-score{
+  color: green;
+}
+
+.medium-score{
+  color: rgb(226, 226, 0);
+}
+
+.low-score{
+  color: red;
+}
