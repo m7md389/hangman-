@@ -30,7 +30,7 @@ class App extends Component {
       hint: "Pet",
     },
     {
-      word: "Byte",
+      word: "Bytes",
       hint: "The test",
     },
     {
