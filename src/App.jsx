@@ -19,6 +19,9 @@ class App extends Component {
       wordsLeft: this.words.length - 1,
       hintClass: "hint hidden",
     };
+
+    // getting Warning
+    document.addEventListener("keypress", (e) => this.handleKeyPress(e));
   }
 
   words = [
@@ -61,7 +64,7 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div onKeyPress={(e) => this.handleKeyPress(e)} tabIndex={0}>
         <Score score={this.state.score} />
         <Solution
           letters={this.state.letters}
@@ -82,7 +85,7 @@ class App extends Component {
           wordsLeft={this.state.wordsLeft}
         />
         <ToastContainer />
-      </Fragment>
+      </div>
     );
   }
 
@@ -142,6 +145,13 @@ class App extends Component {
       score: newScore,
       gameStatus: newGameStatus,
     });
+  };
+
+  handleKeyPress = (event) => {
+    const key = event.key.toUpperCase();
+    if (key.charCodeAt() < 65 || key.charCodeAt() > 90) return null;
+    if (this.state.letters[key]) return null;
+    this.handleSelectLetter(key);
   };
 
   handleRestart = () => {
