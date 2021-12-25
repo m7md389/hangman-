@@ -34,6 +34,6 @@ export default class EndGame extends Component {
   }
 
   getButtonClasses() {
-    return "restart" + (this.props.gameStatus === "lost" && " lost");
+    return "restart" + (this.props.gameStatus === "lost" ? " lost" : "");
   }
 }

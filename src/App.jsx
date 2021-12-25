@@ -11,7 +11,6 @@ import "react-toastify/dist/ReactToastify.css";
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       letters: this.generateletters(),
       solution: this.randomSolution(),
@@ -52,7 +51,7 @@ class App extends Component {
     },
     {
       word: "Tea",
-      hint: "Most consumed beverages around the world\n, exclude water!",
+      hint: "Most consumed beverages around the world",
     },
   ].map((word) => {
     word.played = false;
@@ -70,7 +69,9 @@ class App extends Component {
         />
         <Letters
           letters={this.state.letters}
+          solution={this.state.solution}
           handleSelectLetter={this.handleSelectLetter}
+          gameStatus={this.state.gameStatus}
         />
         <EndGame
           gameStatus={this.state.gameStatus}
@@ -95,9 +96,7 @@ class App extends Component {
     const newWord = this.words[randomIndex];
 
     if (newWord.played) return this.randomSolution();
-
     newWord.played = true;
-
     return newWord;
   };
 
@@ -107,7 +106,6 @@ class App extends Component {
         if (char !== " ") return false;
       }
     }
-
     return true;
   };
 
@@ -117,7 +115,6 @@ class App extends Component {
     let newLetters = Object.assign({}, this.state.letters);
     let newScore = this.state.score;
     let newGameStatus = this.state.gameStatus;
-
     newLetters[letter] = true;
 
     if (this.state.solution.word.toUpperCase().includes(letter)) {
@@ -125,7 +122,7 @@ class App extends Component {
 
       if (this.gameFinished(newLetters)) {
         newGameStatus = "won";
-        toast("Wow so easy!");
+        toast.success("Wow so easy!");
       }
     } else {
       newScore -= 20;
@@ -133,7 +130,7 @@ class App extends Component {
       if (newScore <= 0) {
         newScore = 0;
         newGameStatus = "lost";
-        toast("Game Over!");
+        toast.error("Game Over!");
       }
     }
 

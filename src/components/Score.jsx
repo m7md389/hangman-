@@ -6,13 +6,13 @@ export class Score extends Component {
   }
 
   getClasses() {
-    let evaluation;
+    let rank;
 
-    if (this.props.score >= 80) evaluation = "high";
-    else if (this.props.score >= 50) evaluation = "medium";
-    else evaluation = "low";
+    if (this.props.score >= 80) rank = "high";
+    else if (this.props.score >= 50) rank = "medium";
+    else rank = "low";
 
-    return `score ${evaluation}-score`;
+    return `score ${rank}-score`;
   }
 }
 

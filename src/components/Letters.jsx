@@ -3,17 +3,19 @@ import Letter from "./Letter";
 
 export class Letters extends Component {
   render() {
+    if (this.props.gameStatus !== "playing") return null;
     return (
       <div className="letters">
-        <h4>Available Letters:</h4>
+        <h2>Available Letters:</h2>
         <div>
           {Object.keys(this.props.letters).map((l) => {
             return (
               <Letter
                 key={l}
                 letter={l}
-                selected={this.props.letters[l] ? true : false}
+                selected={this.props.letters[l]}
                 handleSelectLetter={this.props.handleSelectLetter}
+                solution={this.props.solution}
               />
             );
           })}

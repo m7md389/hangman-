@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Chewy",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  /* font-family: "Chewy", cursive; */
   text-align: center;
   background-color: #b8c6db;
   background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
@@ -24,14 +26,6 @@ code {
 
 .solution {
   margin-top: 3rem;
-}
-
-.letters div {
-  display: grid;
-  grid-template-columns: repeat(13, 1fr);
-  padding-left: 10%;
-  padding-right: 10%;
-  gap: 1rem;
 }
 
 @media (max-width: 520px) {
@@ -56,6 +50,7 @@ code {
 
 .score {
   font-size: 3rem;
+  text-shadow: 2px 2px 2px rgb(117, 117, 117);
 }
 
 .low-score {
@@ -63,20 +58,55 @@ code {
 }
 
 .medium-score {
-  color: rgb(226, 226, 0);
+  color: rgb(255, 255, 0);
 }
 
 .high-score {
-  color: green;
+  color: rgb(0, 255, 0);
 }
 
 .solution .letter {
   margin-left: 0.5rem;
 }
 
-.letters h4 {
+.hint-container {
+  margin-top: 1rem;
+  font-size: large;
+}
+
+.hint {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.shown {
+  color: #fff;
+  background-color: #6b757e;
+  border-radius: 5px;
+}
+
+.hidden {
+  color: #34393f;
+  background-color: #34393f;
+  border-radius: 5px;
+}
+
+.hidden:hover {
+  cursor: pointer;
+}
+
+.letters h2 {
+  font-family: "Chewy", cursive;
   margin-top: 3rem;
   color: #044a57;
+}
+
+.letters div {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  padding-left: 10%;
+  padding-right: 10%;
+  gap: 1rem;
 }
 
 .letters .letter {
@@ -93,8 +123,12 @@ code {
   background-color: rgb(248, 231, 200);
 }
 
-.selected {
-  color: red;
+.selected-true {
+  background-color: #d4edda;
+}
+
+.selected-false {
+  background-color: #f8d7da;
 }
 
 .non-selected {
