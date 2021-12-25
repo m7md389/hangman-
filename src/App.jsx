@@ -23,36 +23,41 @@ class App extends Component {
 
   words = [
     {
-      word: "Ameer",
-      hint: "A name!",
-      played: false,
+      word: "Amazon",
+      hint: "Jeff Bezos",
     },
     {
-      word: "Shokre",
-      hint: "A name!",
-      played: false,
+      word: "Cat!",
+      hint: "Pet",
     },
-    // {
-    //   word: "Lotem",
-    //   hint: "The best teacher!",
-    //   played: false,
-    // },
-    // {
-    //   word: "Byte",
-    //   hint: "The test!",
-    //   played: false,
-    // },
-    // {
-    //   word: "FullStack",
-    //   hint: "Our course",
-    //   played: false,
-    // },
-    // {
-    //   word: "New York",
-    //   hint: "Richest city in the world",
-    //   played: false,
-    // },
-  ];
+    {
+      word: "Byte",
+      hint: "The test",
+    },
+    {
+      word: "FullStack",
+      hint: "Our course",
+    },
+    {
+      word: "Lotem",
+      hint: "A name",
+    },
+    {
+      word: "New York",
+      hint: "American state",
+    },
+    {
+      word: "REACT",
+      hint: "R in MERN",
+    },
+    {
+      word: "Tea",
+      hint: "Most consumed beverages around the world, exclude water!",
+    },
+  ].map((word) => {
+    word.played = false;
+    return word;
+  });
 
   render() {
     return (
