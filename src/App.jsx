@@ -122,7 +122,7 @@ class App extends Component {
 
       if (this.gameFinished(newLetters)) {
         newGameStatus = "won";
-        toast.success("Wow so easy!");
+        toast.success("Good Work!");
       }
     } else {
       newScore -= 20;
