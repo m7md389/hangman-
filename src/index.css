@@ -30,18 +30,6 @@ code {
   margin-top: 3rem;
 }
 
-@media (max-width: 520px) {
-  .letters div {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 400px) {
-  .letters div {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 .letter {
   font-size: larger;
 }
@@ -112,6 +100,18 @@ code {
   gap: 1rem;
 }
 
+@media (max-width: 520px) {
+  .letters div {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .letters div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .letters .letter {
   color: #06869c;
   border: 1px solid #06869c;
@@ -140,6 +140,15 @@ code {
 
 .non-selected:hover {
   cursor: pointer;
+}
+
+.lost {
+  color: #64043f;
+  border: 1px solid #64043f;
+}
+
+.lost:hover {
+  background-color: #ec0000de;
 }
 
 /* ready css button */
@@ -239,13 +248,4 @@ code {
     opacity: 0;
     left: 100%;
   }
-}
-
-.lost {
-  color: #64043f;
-  border: 1px solid #64043f;
-}
-
-.lost:hover {
-  background-color: #ec0000de;
 }
