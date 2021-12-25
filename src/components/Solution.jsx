@@ -3,23 +3,23 @@ import Letter from "./Letter";
 
 export class Solution extends Component {
   render() {
-    const hiddenChar = "_";
     return (
       <div className="solution">
         {[...this.props.solution.word].map((char, index) => {
-          let letter = this.props.letters[char.toUpperCase()]
-            ? char
-            : hiddenChar;
-          if (char === " ") {
-            letter = char;
-          }
-          return <Letter key={index} letter={letter} />;
+          return <Letter key={index} letter={this.getLetter(char)} />;
         })}
+
         <div className="hint">
           <em>{this.props.solution.hint}</em>
         </div>
       </div>
     );
+  }
+
+  getLetter(char) {
+    if (char === " ") return char;
+
+    return this.props.letters[char.toUpperCase()] ? char : "_";
   }
 }
 

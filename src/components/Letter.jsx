@@ -1,34 +1,32 @@
 import React, { Component } from "react";
 
 export class Letter extends Component {
-  selectLetter = () => {
-    if (this.props.selected) {
-      return null;
-    }
+  render() {
+    return (
+      <span onClick={this.handleSelectLetter} className={this.getClasses()}>
+        {this.props.letter}
+      </span>
+    );
+  }
 
-    if (this.props.selectLetter) {
-      return this.props.selectLetter(this.props.letter);
+  handleSelectLetter = () => {
+    if (this.props.selected) return null;
+
+    if (this.props.handleSelectLetter) {
+      return this.props.handleSelectLetter(this.props.letter);
     }
 
     return null;
   };
 
-  getClass() {
-    let letterClass = "letter";
+  getClasses() {
+    let classes = "letter";
 
-    if (this.props.selected) return letterClass + " selected";
-    else if (this.props.selected === false)
-      return letterClass + " non-selected";
+    if (this.props.selected) return classes + " selected";
 
-    return letterClass;
-  }
+    if (this.props.selected === false) return classes + " non-selected";
 
-  render() {
-    return (
-      <span onClick={this.selectLetter} className={this.getClass()}>
-        {this.props.letter}
-      </span>
-    );
+    return classes;
   }
 }
 

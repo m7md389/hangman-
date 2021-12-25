@@ -1,72 +1,88 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   text-align: center;
+  /* background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-size: contain; */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.score{
+.score {
   margin-top: 3rem;
 }
 
-.solution{
+.solution {
   margin-top: 3rem;
 }
 
-.letters{
+.letters div {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
   margin-top: 3rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
+  gap: 1rem;
 }
 
-.end-game{
-  margin-top: 3rem;
-}
-
-.won{
-  color:green
-}
-
-.lost{
-  color: red;  
-}
-
-.letter{
+.letter {
   font-size: larger;
-  margin-right: 10px;
 }
 
-.selected{
-  color: red;
+.end-game {
+  margin-top: 3rem;
 }
 
-.non-selected{
-  color: #000;
-}
-
-.non-selected:hover{
-  cursor: pointer;
-}
-
-.score{
+.score {
   font-size: 3rem;
 }
 
-.high-score{
-  color: green;
+.low-score {
+  color: red;
 }
 
-.medium-score{
+.medium-score {
   color: rgb(226, 226, 0);
 }
 
-.low-score{
+.high-score {
+  color: green;
+}
+
+.solution .letter {
+  margin-left: 0.5rem;
+}
+
+.letters .letter {
+  background-color: rgb(200, 217, 248);
+  border-radius: 0.3rem;
+}
+
+.selected {
   color: red;
+}
+
+.non-selected {
+  color: #000;
+}
+
+.non-selected:hover {
+  cursor: pointer;
+}
+
+.restart {
+  margin-top: 1.5rem;
+  height: 3rem;
+  width: 10rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
 }
