@@ -24,9 +24,16 @@ export default class EndGame extends Component {
     return this.props.wordsLeft === 0 ? (
       <h3>No More Words!</h3>
     ) : (
-      <button className="restart" onClick={this.props.handleRestart}>
+      <button
+        className={this.getButtonClasses()}
+        onClick={this.props.handleRestart}
+      >
         Play Again
       </button>
     );
+  }
+
+  getButtonClasses() {
+    return "restart" + (this.props.gameStatus === "lost" && " lost");
   }
 }

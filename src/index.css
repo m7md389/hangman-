@@ -7,8 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   text-align: center;
-  /* background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-  background-size: contain; */
+  background-color: #b8c6db;
+  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+  background-size: cover;
+  min-height: 100vh;
 }
 
 code {
@@ -74,15 +76,21 @@ code {
 
 .letters h4 {
   margin-top: 3rem;
+  color: #044a57;
 }
 
 .letters .letter {
-  background-color: rgb(200, 217, 248);
-  border-radius: 0.3rem;
+  color: #06869c;
+  border: 1px solid #06869c;
+  border-radius: 8px;
   height: 1.8rem;
   width: 75%;
   min-width: 1.2rem;
   max-width: 5rem;
+}
+
+.letter :hover {
+  background-color: rgb(248, 231, 200);
 }
 
 .selected {
@@ -97,11 +105,110 @@ code {
   cursor: pointer;
 }
 
+/* ready css button */
 .restart {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #06869c;
+  border: 1px solid #06869c;
+  border-radius: 5px;
+  line-height: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
   margin-top: 1.5rem;
-  height: 3rem;
-  width: 10rem;
-  border: none;
-  border-radius: 0.3rem;
-  font-size: 1rem;
+}
+.restart:hover {
+  color: white;
+  box-shadow: 0 0 30px 0 rgba(0, 199, 236, 0.5);
+  background-color: #00c7ec;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.restart:hover:before {
+  -webkit-animation: shine 0.5s 0s linear;
+  -moz-animation: shine 0.5s 0s linear;
+  animation: shine 0.5s 0s linear;
+}
+.restart:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+.restart:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: white;
+  box-shadow: 0 0 15px 3px white;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@-webkit-keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+@-moz-keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.lost {
+  color: #64043f;
+  border: 1px solid #64043f;
+}
+
+.lost:hover {
+  background-color: #ec0000de;
 }
