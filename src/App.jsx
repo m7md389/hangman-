@@ -17,7 +17,7 @@ class App extends Component {
       solution: this.randomSolution(),
       score: 100,
       gameStatus: "playing",
-      wordsLeft: this.words.length,
+      wordsLeft: this.words.length - 1,
     };
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
       hint: "Jeff Bezos",
     },
     {
-      word: "Cat!",
+      word: "Cat",
       hint: "Pet",
     },
     {
@@ -52,7 +52,7 @@ class App extends Component {
     },
     {
       word: "Tea",
-      hint: "Most consumed beverages around the world, exclude water!",
+      hint: "Most consumed beverages around the world\n, exclude water!",
     },
   ].map((word) => {
     word.played = false;
@@ -108,9 +108,6 @@ class App extends Component {
       }
     }
 
-    const newWordsLeft = this.state.wordsLeft - 1;
-    this.setState({ wordsLeft: newWordsLeft });
-
     return true;
   };
 
@@ -148,11 +145,13 @@ class App extends Component {
   };
 
   handleRestart = () => {
+    let newWordsLeft = this.state.wordsLeft - 1;
     this.setState({
       letters: this.generateletters(),
       solution: this.randomSolution(),
       score: 100,
       gameStatus: "playing",
+      wordsLeft: newWordsLeft,
     });
   };
 }

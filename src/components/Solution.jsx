@@ -5,9 +5,11 @@ export class Solution extends Component {
   render() {
     return (
       <div className="solution">
-        {[...this.props.solution.word].map((char, index) => {
-          return <Letter key={index} letter={this.getLetter(char)} />;
-        })}
+        <div className="word">
+          {[...this.props.solution.word].map((char, index) => {
+            return <Letter key={index} letter={this.getLetter(char)} />;
+          })}
+        </div>
 
         <div className="hint">
           <em>{this.props.solution.hint}</em>
