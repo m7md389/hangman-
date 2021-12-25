@@ -34,21 +34,13 @@ code {
 
 @media (max-width: 520px) {
   .letters div {
-    display: grid;
     grid-template-columns: repeat(5, 1fr);
-    padding-left: 10%;
-    padding-right: 10%;
-    gap: 1rem;
   }
 }
 
 @media (max-width: 400px) {
   .letters div {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding-left: 10%;
-    padding-right: 10%;
-    gap: 1rem;
   }
 }
 
