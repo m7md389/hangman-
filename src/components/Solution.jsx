@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import Letter from "./Letter";
 
 export class Solution extends Component {
-  constructor() {
-    super();
-    this.state = {
-      class: "hint hidden",
-    };
-  }
   render() {
     return (
       <div className="solution">
@@ -17,9 +11,9 @@ export class Solution extends Component {
           })}
         </div>
 
-        <div className={"hint-container"} onClick={this.handleShowHint}>
+        <div className={"hint-container"} onClick={this.props.handleShowHint}>
           <em>Hint: </em>
-          <em className={this.state.class}>{this.props.solution.hint}</em>
+          <em className={this.props.hintClass}>{this.props.solution.hint}</em>
         </div>
       </div>
     );
@@ -29,10 +23,6 @@ export class Solution extends Component {
     if (char === " ") return char;
     return this.props.letters[char.toUpperCase()] ? char : "_";
   }
-
-  handleShowHint = () => {
-    this.setState({ class: "hint shown" });
-  };
 }
 
 export default Solution;

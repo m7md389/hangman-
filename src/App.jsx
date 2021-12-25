@@ -17,6 +17,7 @@ class App extends Component {
       score: 100,
       gameStatus: "playing",
       wordsLeft: this.words.length - 1,
+      hintClass: "hint hidden",
     };
   }
 
@@ -51,7 +52,7 @@ class App extends Component {
     },
     {
       word: "Tea",
-      hint: "Most consumed beverages around the world",
+      hint: "Most consumed beverages",
     },
   ].map((word) => {
     word.played = false;
@@ -66,6 +67,8 @@ class App extends Component {
           letters={this.state.letters}
           solution={this.state.solution}
           gameStatus={this.state.gameStatus}
+          hintClass={this.state.hintClass}
+          handleShowHint={this.handleShowHint}
         />
         <Letters
           letters={this.state.letters}
@@ -149,7 +152,12 @@ class App extends Component {
       score: 100,
       gameStatus: "playing",
       wordsLeft: newWordsLeft,
+      hintClass: "hint hidden",
     });
+  };
+
+  handleShowHint = () => {
+    this.setState({ hintClass: "hint shown" });
   };
 }
 
