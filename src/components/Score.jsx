@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 export class Score extends Component {
   render() {
-    return <div className={this.getClasses()}>{this.props.score}</div>;
+    return <div className={this.getScoreClasses()}>{this.props.score}</div>;
   }
 
-  getClasses() {
+  getScoreClasses() {
     let rank;
 
     if (this.props.score >= 80) rank = "high";

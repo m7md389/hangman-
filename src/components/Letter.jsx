@@ -3,7 +3,10 @@ import React, { Component } from "react";
 export class Letter extends Component {
   render() {
     return (
-      <span onClick={this.handleSelectLetter} className={this.getClasses()}>
+      <span
+        onClick={this.handleSelectLetter}
+        className={this.getLetterClasses()}
+      >
         {this.props.letter}
       </span>
     );
@@ -18,7 +21,7 @@ export class Letter extends Component {
     return null;
   };
 
-  getClasses() {
+  getLetterClasses() {
     let classes = "letter";
     if (this.props.selected) {
       if (this.props.solution.word.toUpperCase().includes(this.props.letter))
