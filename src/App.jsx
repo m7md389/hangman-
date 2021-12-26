@@ -54,10 +54,7 @@ class App extends Component {
       word: "Tea",
       hint: "Most consumed beverages",
     },
-  ].map((word) => {
-    word.played = false;
-    return word;
-  });
+  ].map((word) => ({ ...word, played: false }));
 
   render() {
     return (

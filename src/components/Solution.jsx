@@ -1,28 +1,26 @@
 import React, { Component } from "react";
 import Letter from "./Letter";
 
-export class Solution extends Component {
-  render() {
-    return (
-      <div className="solution">
-        <div className="word">
-          {[...this.props.solution.word].map((char, index) => {
-            return <Letter key={index} letter={this.getLetter(char)} />;
-          })}
-        </div>
-
-        <div className={"hint-container"} onClick={this.props.handleShowHint}>
-          <em>Hint: </em>
-          <em className={this.props.hintClass}>{this.props.solution.hint}</em>
-        </div>
-      </div>
-    );
-  }
-
-  getLetter(char) {
+const Solution = function (props) {
+  const getLetter = (char) => {
     if (char === " ") return char;
-    return this.props.letters[char.toUpperCase()] ? char : "_";
-  }
-}
+    return props.letters[char.toUpperCase()] ? char : "_";
+  };
+
+  return (
+    <div className="solution">
+      <div className="word">
+        {[...props.solution.word].map((char, index) => {
+          return <Letter key={index} letter={getLetter(char)} />;
+        })}
+      </div>
+
+      <div className={"hint-container"} onClick={props.handleShowHint}>
+        <em>Hint: </em>
+        <em className={props.hintClass}>{props.solution.hint}</em>
+      </div>
+    </div>
+  );
+};
 
 export default Solution;

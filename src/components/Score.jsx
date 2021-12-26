@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 
-export class Score extends Component {
-  render() {
-    return <div className={this.getScoreClasses()}>{this.props.score}</div>;
-  }
-
-  getScoreClasses() {
+const Score = function (props) {
+  const getScoreClasses = () => {
     let rank;
 
-    if (this.props.score >= 80) rank = "high";
-    else if (this.props.score >= 50) rank = "medium";
+    if (props.score >= 80) rank = "high";
+    else if (props.score >= 50) rank = "medium";
     else rank = "low";
 
     return `score ${rank}-score`;
-  }
-}
+  };
+
+  return <div className={getScoreClasses()}>{props.score}</div>;
+};
 
 export default Score;
