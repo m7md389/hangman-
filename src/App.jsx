@@ -19,9 +19,6 @@ class App extends Component {
       wordsLeft: this.words.length - 1,
       hintClass: "hint hidden",
     };
-
-    // getting Warning
-    document.addEventListener("keypress", (e) => this.handleKeyPress(e));
   }
 
   words = [
@@ -64,7 +61,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div
+        className="app"
+        tabIndex={0}
+        onKeyPress={(e) => {
+          this.handleKeyPress(e);
+        }}
+      >
         <Score score={this.state.score} />
         <Solution
           letters={this.state.letters}
