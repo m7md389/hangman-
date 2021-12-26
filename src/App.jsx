@@ -64,7 +64,7 @@ class App extends Component {
 
   render() {
     return (
-      <div onKeyPress={(e) => this.handleKeyPress(e)} tabIndex={0}>
+      <div className="App">
         <Score score={this.state.score} />
         <Solution
           letters={this.state.letters}

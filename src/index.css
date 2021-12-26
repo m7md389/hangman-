@@ -24,6 +24,8 @@ code {
 .score {
   font-family: "Pushster", cursive;
   margin-top: 3rem;
+  font-size: 3rem;
+  text-shadow: 2px 2px 2px rgb(117, 117, 117);
 }
 
 .solution {
@@ -36,11 +38,6 @@ code {
 
 .end-game {
   margin-top: 3rem;
-}
-
-.score {
-  font-size: 3rem;
-  text-shadow: 2px 2px 2px rgb(117, 117, 117);
 }
 
 .low-score {
@@ -142,13 +139,8 @@ code {
   cursor: pointer;
 }
 
-.lost {
-  color: #64043f;
-  border: 1px solid #64043f;
-}
-
-.lost:hover {
-  background-color: #ec0000de;
+.end-game h3 {
+  color: #044a57;
 }
 
 /* ready css button */
@@ -248,4 +240,13 @@ code {
     opacity: 0;
     left: 100%;
   }
+}
+
+.lost {
+  color: #64043f;
+  border: 1px solid #64043f;
+}
+
+.lost:hover {
+  background-color: #ec0000de;
 }
