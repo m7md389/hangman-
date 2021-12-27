@@ -147,9 +147,9 @@ class App extends Component {
     const keyCode = event.code;
     if (!keyCode.startsWith("Key")) return null;
 
-    const key = keyCode[keyCode.length - 1];
-    if (key.charCodeAt() < 65 || key.charCodeAt() > 90) return null;
+    const key = keyCode.slice(-1);
     if (this.state.letters[key]) return null;
+
     this.handleSelectLetter(key);
   };
 
