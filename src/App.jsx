@@ -58,7 +58,7 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment
+      <div
         className="app"
         tabIndex={0}
         onKeyPress={(e) => {
@@ -85,7 +85,7 @@ class App extends Component {
           wordsLeft={this.state.wordsLeft}
         />
         <ToastContainer />
-      </Fragment>
+      </div>
     );
   }
 
