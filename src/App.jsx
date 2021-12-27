@@ -89,13 +89,13 @@ class App extends Component {
     );
   }
 
-  generateletters() {
+  generateletters = () => {
     let letters = {};
     for (let i = 65; i < 91; i++) {
       letters[String.fromCharCode(i)] = false;
     }
     return letters;
-  }
+  };
 
   randomSolution = () => {
     const randomIndex = Math.floor(Math.random() * this.words.length);
@@ -118,33 +118,29 @@ class App extends Component {
   handleSelectLetter = (letter) => {
     if (["won", "lost"].includes(this.state.gameStatus)) return null;
 
-    let newLetters = Object.assign({}, this.state.letters);
-    let newScore = this.state.score;
-    let newGameStatus = this.state.gameStatus;
-    newLetters[letter] = true;
+    let letters = Object.assign({}, this.state.letters);
+    let score = this.state.score;
+    let gameStatus = this.state.gameStatus;
+    letters[letter] = true;
 
     if (this.state.solution.word.toUpperCase().includes(letter)) {
-      newScore += 5;
+      score += 5;
 
-      if (this.gameFinished(newLetters)) {
-        newGameStatus = "won";
+      if (this.gameFinished(letters)) {
+        gameStatus = "won";
         toast.success("Good Work!");
       }
     } else {
-      newScore -= 20;
+      score -= 20;
 
-      if (newScore <= 0) {
-        newScore = 0;
-        newGameStatus = "lost";
+      if (score <= 0) {
+        score = 0;
+        gameStatus = "lost";
         toast.error("Game Over!");
       }
     }
 
-    this.setState({
-      letters: newLetters,
-      score: newScore,
-      gameStatus: newGameStatus,
-    });
+    this.setState({ letters, score, gameStatus });
   };
 
   handleKeyPress = (event) => {
