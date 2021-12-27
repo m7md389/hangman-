@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import Score from "./components/Score";
 import Solution from "./components/Solution";
 import Letters from "./components/Letters";
@@ -144,7 +144,10 @@ class App extends Component {
   };
 
   handleKeyPress = (event) => {
-    const key = event.key.toUpperCase();
+    const keyCode = event.code;
+    if (!keyCode.startsWith("Key")) return null;
+
+    const key = keyCode[keyCode.length - 1];
     if (key.charCodeAt() < 65 || key.charCodeAt() > 90) return null;
     if (this.state.letters[key]) return null;
     this.handleSelectLetter(key);
