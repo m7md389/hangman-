@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Cat } from "react-kawaii";
-import Restart from "./Restart";
 
 const EndGame = function (props) {
   const getCat = () => {
@@ -14,10 +13,9 @@ const EndGame = function (props) {
     return props.wordsLeft === 0 ? (
       <h3>No More Words!</h3>
     ) : (
-      <Restart
-        className={getButtonClasses()}
-        handleRestart={props.handleRestart}
-      />
+      <button className={getButtonClasses()} onClick={props.handleRestart}>
+        Play Again
+      </button>
     );
   };
 
