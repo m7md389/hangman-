@@ -7,7 +7,7 @@ import EndGame from "./components/EndGame";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import words from "./words";
+import solutions from "./solutions";
 
 class App extends Component {
   constructor() {
@@ -17,45 +17,12 @@ class App extends Component {
       solution: this.randomSolution(),
       score: this.INITIAL_SCORE,
       gameStatus: "playing",
-      wordsLeft: words.length - 1,
+      wordsLeft: solutions.length - 1,
       isShownHint: false,
     };
   }
 
   INITIAL_SCORE = 100;
-
-  render() {
-    return (
-      <div
-        className="app"
-        tabIndex={0}
-        onKeyPress={(e) => {
-          this.handleKeyPress(e);
-        }}
-      >
-        <Score score={this.state.score} />
-        <Solution
-          letters={this.state.letters}
-          solution={this.state.solution}
-          gameStatus={this.state.gameStatus}
-          isShownHint={this.state.isShownHint}
-          onShowHint={this.handleShowHint}
-        />
-        <Letters
-          letters={this.state.letters}
-          solution={this.state.solution}
-          onSelectLetter={this.handleSelectLetter}
-          gameStatus={this.state.gameStatus}
-        />
-        <EndGame
-          gameStatus={this.state.gameStatus}
-          onRestart={this.handleRestart}
-          wordsLeft={this.state.wordsLeft}
-        />
-        <ToastContainer />
-      </div>
-    );
-  }
 
   generateLetters = () => {
     let letters = {};
@@ -66,12 +33,19 @@ class App extends Component {
   };
 
   randomSolution = () => {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    const newWord = words[randomIndex];
+    // const randomIndex = Math.floor(Math.random() * solutions.length);
+    // const solution = solutions[randomIndex];
+    // // console.log(solution);
+    // // this.words.map((w) => w !== word);
+    // return {
+    //   word: "REACT",
+    //   hint: "R in MERN",
+    // };
 
-    if (newWord.played) return this.randomSolution();
-    newWord.played = true;
-    return newWord;
+    const randomIndex = Math.floor(Math.random() * solutions.length);
+    const word = solutions[randomIndex];
+
+    return word;
   };
 
   isGmeOver = (newLetters) => {
@@ -120,13 +94,13 @@ class App extends Component {
   };
 
   handleRestart = () => {
-    let newWordsLeft = this.state.wordsLeft - 1;
+    let wordsLeft = this.state.wordsLeft - 1;
     this.setState({
       letters: this.generateLetters(),
       solution: this.randomSolution(),
       score: 100,
       gameStatus: "playing",
-      wordsLeft: newWordsLeft,
+      wordsLeft,
       isShownHint: false,
     });
   };
@@ -134,6 +108,39 @@ class App extends Component {
   handleShowHint = () => {
     this.setState({ isShownHint: true });
   };
+
+  render() {
+    return (
+      <div
+        className="app"
+        tabIndex={0}
+        onKeyPress={(e) => {
+          this.handleKeyPress(e);
+        }}
+      >
+        <Score score={this.state.score} />
+        <Solution
+          letters={this.state.letters}
+          solution={this.state.solution}
+          gameStatus={this.state.gameStatus}
+          isShownHint={this.state.isShownHint}
+          onShowHint={this.handleShowHint}
+        />
+        <Letters
+          letters={this.state.letters}
+          solution={this.state.solution}
+          onSelectLetter={this.handleSelectLetter}
+          gameStatus={this.state.gameStatus}
+        />
+        <EndGame
+          gameStatus={this.state.gameStatus}
+          onRestart={this.handleRestart}
+          wordsLeft={this.state.wordsLeft}
+        />
+        <ToastContainer />
+      </div>
+    );
+  }
 }
 
 export default App;

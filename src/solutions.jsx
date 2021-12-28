@@ -1,4 +1,4 @@
-const words = [
+const solutions = [
   {
     word: "Amazon",
     hint: "Jeff Bezos",
@@ -31,6 +31,6 @@ const words = [
     word: "Tea",
     hint: "Most consumed beverages",
   },
-].map((word) => ({ ...word, played: false }));
+];
 
-export default words;
+export default solutions;

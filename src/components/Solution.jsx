@@ -2,28 +2,28 @@ import React from "react";
 import "../styles/solution.css";
 import Letter from "./Letter";
 
-const Solution = function (props) {
+const Solution = function ({ letters, solution, isShownHint, onShowHint }) {
   const getLetter = (char) => {
     if (char === " ") return char;
-    return props.letters[char.toUpperCase()] ? char : "_";
+    return letters[char.toUpperCase()] ? char : "_";
   };
 
   const getHintClasses = () => {
-    if (props.isShownHint) return "shown hint";
+    if (isShownHint) return "shown hint";
     return "hint hidden";
   };
 
   return (
     <div className="solution">
       <div className="word">
-        {[...props.solution.word].map((char, index) => {
+        {[...solution.word].map((char, index) => {
           return <Letter key={index} letter={getLetter(char)} />;
         })}
       </div>
 
-      <div className={"hint-container"} onClick={props.onShowHint}>
+      <div className={"hint-container"} onClick={onShowHint}>
         <em>Hint: </em>
-        <em className={getHintClasses()}>{props.solution.hint}</em>
+        <em className={getHintClasses()}>{solution.hint}</em>
       </div>
     </div>
   );
