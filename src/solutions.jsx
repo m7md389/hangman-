@@ -4,12 +4,12 @@ const solutions = [
     hint: "Jeff Bezos",
   },
   {
-    word: "Cat",
-    hint: "Pet",
-  },
-  {
     word: "Bytes",
     hint: "The test",
+  },
+  {
+    word: "Cat",
+    hint: "Pet",
   },
   {
     word: "FullStack",

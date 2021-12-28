@@ -12,12 +12,12 @@ import solutions from "./solutions";
 class App extends Component {
   constructor() {
     super();
+    this.solutions = solutions;
     this.state = {
       letters: this.generateLetters(),
       solution: this.randomSolution(),
       score: this.INITIAL_SCORE,
       gameStatus: "playing",
-      wordsLeft: solutions.length - 1,
       isShownHint: false,
     };
   }
@@ -33,19 +33,10 @@ class App extends Component {
   };
 
   randomSolution = () => {
-    // const randomIndex = Math.floor(Math.random() * solutions.length);
-    // const solution = solutions[randomIndex];
-    // // console.log(solution);
-    // // this.words.map((w) => w !== word);
-    // return {
-    //   word: "REACT",
-    //   hint: "R in MERN",
-    // };
-
-    const randomIndex = Math.floor(Math.random() * solutions.length);
-    const word = solutions[randomIndex];
-
-    return word;
+    const randomIndex = Math.floor(Math.random() * this.solutions.length);
+    const solution = this.solutions[randomIndex];
+    this.solutions = this.solutions.filter((s) => s.word !== solution.word);
+    return solution;
   };
 
   isGmeOver = (newLetters) => {
@@ -94,13 +85,11 @@ class App extends Component {
   };
 
   handleRestart = () => {
-    let wordsLeft = this.state.wordsLeft - 1;
     this.setState({
       letters: this.generateLetters(),
       solution: this.randomSolution(),
       score: 100,
       gameStatus: "playing",
-      wordsLeft,
       isShownHint: false,
     });
   };
@@ -135,7 +124,7 @@ class App extends Component {
         <EndGame
           gameStatus={this.state.gameStatus}
           onRestart={this.handleRestart}
-          wordsLeft={this.state.wordsLeft}
+          wordsLeft={this.solutions.length}
         />
         <ToastContainer />
       </div>
