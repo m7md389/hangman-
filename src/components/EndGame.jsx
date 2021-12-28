@@ -1,29 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
+import "../styles/end_game.css";
+
 import { Cat } from "react-kawaii";
 
-const EndGame = function (props) {
+const EndGame = function ({ gameStatus, wordsLeft, onRestart }) {
   const getCat = () => {
-    if (props.gameStatus === "won")
+    if (gameStatus === "won")
       return <Cat size={180} mood="excited" color="#A6E191" />;
-    if (props.gameStatus === "lost")
+    if (gameStatus === "lost")
       return <Cat size={180} mood="ko" color="#FDA7DC" />;
   };
 
   const getPlayAgain = () => {
-    return props.wordsLeft === 0 ? (
+    return wordsLeft === 0 ? (
       <h3>No More Words!</h3>
     ) : (
-      <button className={getButtonClasses()} onClick={props.handleRestart}>
+      <button className={getButtonClasses()} onClick={onRestart}>
         Play Again
       </button>
     );
   };
 
   const getButtonClasses = () => {
-    return "restart" + (props.gameStatus === "lost" ? " lost" : "");
+    return "restart" + (gameStatus === "lost" ? " lost" : "");
   };
 
-  if (props.gameStatus === "playing") return null;
+  if (gameStatus === "playing") return null;
 
   return (
     <div className="end-game">

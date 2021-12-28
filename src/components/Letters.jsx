@@ -1,20 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import "../styles/letters.css";
 import Letter from "./Letter";
 
-const Letters = function (props) {
-  if (props.gameStatus !== "playing") return null;
+const Letters = function ({ gameStatus, letters, solution, onSelectLetter }) {
+  if (gameStatus !== "playing") return null;
   return (
     <div className="letters">
       <h2>Available Letters:</h2>
       <div>
-        {Object.keys(props.letters).map((l) => {
+        {Object.keys(letters).map((l) => {
           return (
             <Letter
               key={l}
               letter={l}
-              selected={props.letters[l]}
-              handleSelectLetter={props.handleSelectLetter}
-              solution={props.solution}
+              selected={letters[l]}
+              onSelectLetter={onSelectLetter}
+              solution={solution}
             />
           );
         })}

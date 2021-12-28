@@ -1,28 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
+import "../styles/letter.css";
 
-const Letter = function (props) {
+const Letter = function ({ selected, letter, solution, onSelectLetter }) {
   const handleSelectLetter = () => {
-    if (props.selected) return null;
-    if (props.handleSelectLetter) {
-      return props.handleSelectLetter(props.letter);
+    if (selected) return null;
+    if (onSelectLetter) {
+      return onSelectLetter(letter);
     }
     return null;
   };
 
   const getLetterClasses = () => {
     let classes = "letter";
-    if (props.selected) {
-      if (props.solution.word.toUpperCase().includes(props.letter))
+    if (selected) {
+      if (solution.word.toUpperCase().includes(letter))
         return classes + " selected-true";
       return classes + " selected-false";
     }
-    if (props.selected === false) return classes + " non-selected";
+    if (selected === false) return classes + " non-selected";
     return classes;
   };
 
   return (
     <span onClick={handleSelectLetter} className={getLetterClasses()}>
-      {props.letter}
+      {letter}
     </span>
   );
 };

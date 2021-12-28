@@ -1,10 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
+import "../styles/solution.css";
 import Letter from "./Letter";
 
 const Solution = function (props) {
   const getLetter = (char) => {
     if (char === " ") return char;
     return props.letters[char.toUpperCase()] ? char : "_";
+  };
+
+  const getHintClasses = () => {
+    if (props.isShownHint) return "shown hint";
+    return "hint hidden";
   };
 
   return (
@@ -15,9 +21,9 @@ const Solution = function (props) {
         })}
       </div>
 
-      <div className={"hint-container"} onClick={props.handleShowHint}>
+      <div className={"hint-container"} onClick={props.onShowHint}>
         <em>Hint: </em>
-        <em className={props.hintClass}>{props.solution.hint}</em>
+        <em className={getHintClasses()}>{props.solution.hint}</em>
       </div>
     </div>
   );
