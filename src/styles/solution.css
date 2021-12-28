@@ -1,0 +1,33 @@
+.solution {
+  padding-top: 3rem;
+}
+
+.solution .letter {
+  margin-left: 0.5rem;
+}
+
+.hint-container {
+  margin-top: 1rem;
+  font-size: large;
+}
+
+.hint {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.shown {
+  color: #fff;
+  background-color: #6b757e;
+  border-radius: 5px;
+}
+
+.hidden {
+  color: #34393f;
+  background-color: #34393f;
+  border-radius: 5px;
+}
+
+.hidden:hover {
+  cursor: pointer;
+}

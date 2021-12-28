@@ -1,0 +1,23 @@
+.letter {
+  font-size: larger;
+}
+
+.letter :hover {
+  background-color: rgb(248, 231, 200);
+}
+
+.selected-true {
+  background-color: #d4edda;
+}
+
+.selected-false {
+  background-color: #f8d7da;
+}
+
+.non-selected {
+  color: #000;
+}
+
+.non-selected:hover {
+  cursor: pointer;
+}

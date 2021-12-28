@@ -1,0 +1,36 @@
+.letters h2 {
+  font-family: "Chewy", cursive;
+  padding-top: 3rem;
+  color: #044a57;
+}
+
+.letters div {
+  font-family: "Sansita", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  padding-left: 10%;
+  padding-right: 10%;
+  gap: 1rem;
+}
+
+@media (max-width: 520px) {
+  .letters div {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .letters div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.letters .letter {
+  color: #06869c;
+  border: 1px solid #06869c;
+  border-radius: 8px;
+  height: 1.8rem;
+  width: 75%;
+  min-width: 1.2rem;
+  max-width: 5rem;
+}

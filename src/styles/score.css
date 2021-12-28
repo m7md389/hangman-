@@ -1,0 +1,18 @@
+.score {
+  font-family: "Pushster", cursive;
+  padding-top: 3rem;
+  font-size: 3rem;
+  text-shadow: 2px 2px 2px rgb(117, 117, 117);
+}
+
+.low-score {
+  color: rgb(255, 0, 0);
+}
+
+.medium-score {
+  color: rgb(255, 255, 0);
+}
+
+.high-score {
+  color: rgb(0, 240, 0);
+}
