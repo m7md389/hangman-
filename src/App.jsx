@@ -88,7 +88,7 @@ class App extends Component {
     this.setState({
       letters: this.generateLetters(),
       solution: this.randomSolution(),
-      score: 100,
+      score: this.INITIAL_SCORE,
       gameStatus: "playing",
       isShownHint: false,
     });
